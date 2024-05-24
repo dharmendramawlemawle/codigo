@@ -1,0 +1,20 @@
+<!-- myblog/templates/home.html -->
+
+{% extends "accounts/base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="jumbotron text-center">
+    <h1>Welcome to My Blog</h1>
+    {% if user.is_authenticated %}
+        <p class="lead">Hello, {{ user.username }}!</p>
+        <p><a class="btn btn-primary btn-lg" href="{% url 'logout' %}" role="button">Logout</a></p>
+    {% else %}
+        <p class="lead">You are not logged in.</p>
+        <p><a class="btn btn-primary btn-lg" href="{% url 'login' %}" role="button">Login</a> <a class="btn btn-secondary btn-lg" href="{% url 'signup' %}" role="button">Sign Up</a></p>
+    {% endif %}
+</div>
+<ul>
+</ul>
+{% endblock %}
